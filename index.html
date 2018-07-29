@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
-	<title>Forest Forager</title>
+	<title>Giftacular</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
 	crossorigin="anonymous">
@@ -25,13 +25,26 @@
 <body>
 	<!-- Container --> 
 	<div class="container text-center">
+		<div class="jumbotron">
+			<h1 class="display-5">Oh yea</h1>
+			<hr class="my-4">
+			<!--Existing Buttons-->
+			<!-- User Added Buttons -->
+			<div id="buttonHuddle"></div>
+
+
+			<!-- Form -->
+				<form id="button-form">
+					<label for="button-input">What else?</label>
+					<input type="text" id="button-input"><br>
+					<!-- Button triggers new movie to be added -->
+					<input id="add-button" type="submit" value="Add it!">
+				</form>
 		
-		<!--Existing Buttons-->
+		</div>
 
-		<!-- User Added Buttons -->
-
-		<!-- Form -->
-
+		
+		<div  class="row" id="imageHuddle"></div>
 
 	</div>
 	<script src="assets/javascript/app.js"></script>

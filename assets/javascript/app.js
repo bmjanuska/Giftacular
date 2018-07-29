@@ -1,17 +1,5 @@
 
 
-
-//============ API ==============
-	//======= Variables =========
-	//var for already existing buttons
-	//var for "noun" button
-	//var for queryURL
-
-	//promise?? what part is the promise again? 
-
-
-	//======= New DIVS ==========
-
 	//creating div tag to img, rating, etc
 	//creating p tag to store result items
     //setting the src attribute of the image to a property pullled off the result item
@@ -25,16 +13,106 @@
 	//var that determies state of gif
 	//if and else to determine the state activated and what state it can switch to
 
+
+
+//array of preloaded gifs
+var gifs = ["typography", "calligraphy", "motion design"];
+
+
 //============ Functions ==============
-	
+
+
+	//function that adds the array of gifs we have and what we will add
+	function displayGIF() {
+		var gifDisp = $(this).attr("data-gif");
+
+		//============ API ==============
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+		gifDisp + "&api_key=dc6zaTOxFJmzC&limit=3";
+
+		$.ajax({
+			url: queryURL,
+			method: "GET"
+		}).then(function(response){
+
+			console.log(response);
+
+			var results = response.data;
+			
+			//for loop that uses already made array of items and items we will make
+			for (var i = 0; i < results.length; i++) {
+
+		 //======= New DIVS ==========
+
+		 //RATING FILTER 
+		 	// if(results[i].rating === "g" || reslts[i].rating ==="pg"){
+
+		 	// }
+
+          //creating div tag
+          var gifDiv = $("<div class='col-3'>");
+
+          //creating paragraph tag with the result items rating
+          var p = $("<p>").text("Rating: " + results[i].rating);
+
+          //Creating and storing and image tag
+          var gifImage = $("<img>");
+
+          //setting the src attribute of the image to a property pullled off the result item
+          gifImage.attr("src", results[i].images.fixed_height.url);
+
+          //appednign the paragraph and image tag ot he gifDiv
+          gifDiv.append(p);
+          gifDiv.append(gifImage);
+
+          //prepending to page
+          $("#imageHuddle").prepend(gifDiv);
+
+      }
+  });
+	}
+
 	// to render buttons when people make them 
-	//for loop that uses already made array of items 
-
-	//function that add movies when button is clicked 
-	//grab variable from the input / textbox
-	//call render button handles the movie array
-
-
-	//add click listener to elements 
-
 	//render btn
+	function renderButtons(){
+		$("#buttonHuddle").empty();
+
+		for (var i = 0; i < gifs.length; i++){
+
+			var button = $("<button>");
+
+			button.addClass("gifs");
+
+			button.attr("data-gif", gifs[i]);
+
+			button.text(gifs[i]);
+
+			$("#buttonHuddle").append(button);
+		}
+	}
+	
+	//add click listener to elements 	
+	$("#add-button").on("click", function(event){
+		event.preventDefault();
+
+		var newGif = $("#button-input").val().trim();
+
+		blankSpace = $("#button-input").val("");
+
+	//prevent making blank buttons
+	if (newGif != ("")){
+		gifs.push(newGif);
+
+		renderButtons();
+	}
+
+
+});
+
+	$(document).on("click", ".gifs", displayGIF);
+
+//initial three on load
+renderButtons();
+
+
+

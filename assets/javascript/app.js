@@ -1,11 +1,8 @@
 
-
-
-
 //============ Array ==============
 
 //page preloaded gifs
-var gifs = ["ramen", "cake", "pudding"];
+var gifs = ["mo graphics", "typography", "art", "calligraphy", "illustration" ];
 
 
 //============ Functions ==============
@@ -16,7 +13,7 @@ var gifs = ["ramen", "cake", "pudding"];
 
 		//============ API ==============
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-		gifDisp + "&api_key=dc6zaTOxFJmzC&limit=3&rating=pg";
+		gifDisp + "&api_key=dc6zaTOxFJmzC&limit=4&rating=pg";
 
 		$.ajax({
 			url: queryURL,
@@ -33,7 +30,7 @@ var gifs = ["ramen", "cake", "pudding"];
 		 //======= New DIVS ==========
 
 		 //creating div tag
-          var gifDiv = $("<div class='col-3'>");
+          var gifDiv = $("<div class='col-md-3'>");
 
           //creating paragraph tag with the result items rating
           var p = $("<p>").text("Rating: " + results[i].rating);
@@ -53,7 +50,7 @@ var gifs = ["ramen", "cake", "pudding"];
           //storing state. on load it is still
           gifImage.attr("data-state", "still");
 
-          //giving image a class of gif to gifImage
+          //giving image a class of gif to gifImage so the click attr can latch onto this
           gifImage.attr("class", "gif");
 
 

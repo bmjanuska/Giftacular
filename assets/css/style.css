@@ -7,27 +7,35 @@ img {
 }
 
 .gifs {
-	color:#fff;
-	background-color: pink;
+	color:#f9edbf;
+	background-color: #512C54;
 	border: none;
 	border-radius: 5px;
 	padding: 5px 10px;
 	margin:10px;
+	font-weight: bold;
+	font-size: 15px;
+	letter-spacing: 1px;
+	font-family: 'Quicksand', sans-serif;
+
 }
 
 #add-button{
-	color:#fff;
-	background-color: red;
+	font-family: 'Quicksand', sans-serif;
+	color:#f9edbf;
+	background-color: #FF5C58;
 	border: none;
 	border-radius: 5px;
 	padding: 5px 10px;
 	margin:10px;
+	font-family: 'Quicksand', sans-serif;
+
 }
 
 
 p {
-	color:#fff;
-	background-color: pink;
+	color:#f9edbf;
+	background-color: #FF5C58;
 	border: none;
 	border-radius: 5px 5px 0 0;
 	padding: 5px 10px;
@@ -36,4 +44,20 @@ p {
 
 .col-3 {
     margin-bottom: 15px;
+}
+
+.jumbotron{
+	background-color: #32CCB0;
+	color:#f9edbf;
+}
+
+h1 {
+	font-family: 'Abril Fatface', cursive;
+	letter-spacing: 4px;
+}
+
+p, input, label{
+	font-family: 'Quicksand', sans-serif;
+	letter-spacing: 1px;
+
 }
